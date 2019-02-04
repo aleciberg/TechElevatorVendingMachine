@@ -2,11 +2,12 @@
 
 namespace file_io_part1_exercises_pair
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ReadingFIle.ReadFile();
+            Console.ReadLine();
         }
     }
 }
