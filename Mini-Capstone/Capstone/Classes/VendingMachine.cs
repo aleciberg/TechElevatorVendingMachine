@@ -8,6 +8,5 @@ namespace Capstone.Classes
     {
         private List<VendingMachineItem> items = new List<VendingMachineItem>();
         private string filePath = @"C:\VendingMachine";
-
     }
 }
