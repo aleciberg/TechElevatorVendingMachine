@@ -172,20 +172,21 @@ namespace Capstone.Classes
                     {
                         string line = $"{DateTime.Now} {action} {cost} {UserBalance}";
                         sw.WriteLine(line);
-
+                        result = true;
                     }
                     else if (action == "GIVE CHANGE")
                     {
                         string line = $"{DateTime.Now} {action} {UserBalance} {cost}";
                         sw.WriteLine(line);
+                        result = true;
                     }
                     else
                     {
                         string line = $"{DateTime.Now} {action} {UserBalance} {UserBalance - cost}";
                         sw.WriteLine(line);
+                        result = true;
                     }
                 }
-                result = true;
             }
 
             catch (Exception ex)
@@ -195,10 +196,11 @@ namespace Capstone.Classes
             return result;
         }
 
-        public void DepositMoney(decimal funds)
+        public bool DepositMoney(decimal funds)
         {
             UserBalance += funds;
             AddLogEntry("FEED MONEY", funds);
+            return true;
         }
     }
 }

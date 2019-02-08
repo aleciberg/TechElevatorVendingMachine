@@ -7,7 +7,6 @@ namespace Capstone
     {
         static void Main(string[] args)
         {
-            //these should not change 
             UserInterface userInterface = new UserInterface();
             userInterface.RunInterface();
         }
