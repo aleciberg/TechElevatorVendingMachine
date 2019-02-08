@@ -10,7 +10,7 @@ namespace Capstone.Classes
     {
         //must remain private, only methods in the class will access.  will copy to array if we need to send back 
         private List<VendingMachineItem> items = new List<VendingMachineItem>();
-        private string filePath = @"C:\VendingMachine";
+        public string filePath = @"C:\VendingMachine";
         private string fileName = "vendingmachine.csv";
         public decimal UserBalance { get; set; }
         public string SlotNumber { get; set; }
@@ -37,6 +37,7 @@ namespace Capstone.Classes
                         try
                         {
                             vendingMachineItem.Price = decimal.Parse(snackInfo[2]);
+                            result = true;
                         }
                         catch
                         {
@@ -47,7 +48,6 @@ namespace Capstone.Classes
                         items.Add(vendingMachineItem);
                     }
                 }
-                result = true;
             }
             catch
             {
