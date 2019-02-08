@@ -47,7 +47,6 @@ namespace Capstone.Classes
                         break;
                 }
             }
-
         }
 
         private void DisplayVendingMachineItems()
@@ -185,6 +184,5 @@ namespace Capstone.Classes
                 Console.WriteLine(amount.Value + " " + amount.Key);
             }
         }
-
     }
 }

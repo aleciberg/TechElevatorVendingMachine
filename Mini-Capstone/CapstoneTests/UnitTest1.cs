@@ -7,25 +7,6 @@ namespace CapstoneTests
     [TestClass]
     public class UnitTest1
     {
-        //CollectionAssert
-        //.AllItemsAreNotNull() - Looks at each item in actual collection for not null
-        //.AllItemsAreUnique() - Checks for uniqueness among actual collection
-        //.AreEqual() - Checks to see if two collections are equal (same order and quantity)
-        //.AreEquilavent() - Checks to see if two collections have same element in same quantity, any order
-        //.AreNotEqual() - Opposite of AreEqual
-        //.AreNotEquilavent() - Opposite or AreEqualivent
-        //.Contains() - Checks to see if collection contains a value/object
-
-        //Assert
-        //.AreEqual() - compares expected and actual value for equality
-        //.AreSame() - verifies two object variables refer to same object
-        //.AreNotSame() - verifies two object variables refer to different objects
-        //.Fail() - fails without checking conditions
-        //.IsFalse()
-        //.IsTrue()
-        //.IsNotNull()
-        //.IsNull()
-
         [TestMethod]
         public void VendingMachineTestCreate()
         {
@@ -133,7 +114,6 @@ namespace CapstoneTests
             Assert.IsFalse(result);
         }
 
-
         [TestMethod]
         public void TypeBoughtTest()
         {
@@ -167,7 +147,6 @@ namespace CapstoneTests
             vm.MakeChange();
             Dictionary<string, int> newResult = vm.MakeChange();
             CollectionAssert.AreEqual(newResult, result);
-            
         }
 
         [TestMethod]
@@ -246,7 +225,5 @@ namespace CapstoneTests
 
             Assert.AreEqual("A1 - Chips - 3.05  ,  Quantity: SOLD OUT", vmi.ToString());
         }
-
-
     }
 }
