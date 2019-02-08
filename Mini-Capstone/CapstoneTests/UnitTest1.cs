@@ -1,9 +1,5 @@
 using Capstone.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-<<<<<<< HEAD
-using Capstone.Classes;
-=======
->>>>>>> 11fb77f7999cb133e2c6dd06caa96d4aa76e0762
 using System.Collections.Generic;
 
 namespace CapstoneTests
