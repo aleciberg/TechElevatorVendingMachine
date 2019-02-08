@@ -106,7 +106,22 @@ namespace Capstone.Classes
         public void AddMoney()
         {
             Console.WriteLine("Please enter the amount to add (ex. 5.00): ");
-            vendingMachine.DepositMoney(decimal.Parse(Console.ReadLine()));
+            try
+            {
+                if (vendingMachine.DepositMoney(decimal.Parse(Console.ReadLine())))
+                {
+                    Console.WriteLine("Deposit Successful!");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Deposit");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Invalid Entry");
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SelectProduct()
@@ -131,7 +146,7 @@ namespace Capstone.Classes
                         {
                             Console.WriteLine("Munch Munch, Yum!");
                         }
-                        else if (type=="C")
+                        else if (type == "C")
                         {
                             Console.WriteLine("Glug Glug, Yum!");
                         }

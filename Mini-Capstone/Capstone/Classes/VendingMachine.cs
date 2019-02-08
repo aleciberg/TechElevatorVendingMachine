@@ -191,16 +191,26 @@ namespace Capstone.Classes
 
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 result = false;
             }
             return result;
         }
-
+        
         public bool DepositMoney(decimal funds)
         {
-            UserBalance += funds;
-            AddLogEntry("FEED MONEY", funds);
-            return true;
+            bool result = false;
+            if (funds > 0 && UserBalance + funds <= 20000000)
+            {
+                UserBalance += funds;
+                AddLogEntry("FEED MONEY", funds);
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }
