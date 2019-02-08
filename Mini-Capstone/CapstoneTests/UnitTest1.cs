@@ -58,18 +58,47 @@ namespace CapstoneTests
         }//string slot
 
         [TestMethod]
-        public void InStockTest()
-        {
-
-        }//string slot
-
-        [TestMethod]
-        public void IsItemFoundTest()
+        public void InStockTestZero()
         {
             VendingMachine vm = new VendingMachine();
             vm.ReadFile();
-            
+            vm.UserBalance = 500.00M;
+            vm.SelectProductForPurchase("A1");
+            vm.SelectProductForPurchase("A1");
+            vm.SelectProductForPurchase("A1");
+            vm.SelectProductForPurchase("A1");
+            vm.SelectProductForPurchase("A1");
+            bool result = vm.IsItemFound("A1");
+            Assert.IsFalse(result);
         }//string slot
+
+        [TestMethod]
+        public void InStockTestAboveZero()
+        {
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            bool result = vm.InStock("A1");
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void IsItemFoundTrueTest()
+        {
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            bool result = vm.IsItemFound("A1");
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void IsItemFoundFalseTest()
+        {
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            bool result = vm.IsItemFound("E5");
+            Assert.IsFalse(result);
+        }
+
 
         [TestMethod]
         public void TypeBoughtTest()
@@ -81,7 +110,7 @@ namespace CapstoneTests
         }
 
         [TestMethod]
-        public void ResetBalance()
+        public void ResetBalanceTest()
         {
             VendingMachine vm = new VendingMachine();
             vm.UserBalance = 5.00M;
