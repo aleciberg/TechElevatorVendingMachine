@@ -34,8 +34,21 @@ namespace CapstoneTests
         }
 
         [TestMethod]
-        public void ReadFileTest()
+        public void ReadFileTestCorrect()
         {
+            VendingMachine vm = new VendingMachine();
+            bool test = vm.ReadFile();
+            Assert.AreEqual(true, test);
+
+        }
+
+        [TestMethod]
+        public void ReadFileTestIncorrect()
+        {
+            VendingMachine dm = new VendingMachine();
+            dm.filePath = @"C:\DoesntExist";
+            bool test = dm.ReadFile();
+            Assert.AreEqual(false, test);
 
         }
 
