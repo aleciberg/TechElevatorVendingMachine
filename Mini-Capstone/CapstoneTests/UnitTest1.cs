@@ -39,7 +39,6 @@ namespace CapstoneTests
             VendingMachine vm = new VendingMachine();
             bool test = vm.ReadFile();
             Assert.AreEqual(true, test);
-
         }
 
         [TestMethod]
@@ -61,14 +60,32 @@ namespace CapstoneTests
         [TestMethod]
         public void SelectProductForPurchaseTest()
         {
-
-        }//string slot
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            vm.UserBalance = 10.00M;
+            bool result = vm.SelectProductForPurchase("A1");
+            Assert.IsTrue(result);
+        }
 
         [TestMethod]
-        public void FundsSufficientTest()
+        public void FundsSufficientNotTest()
         {
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            vm.UserBalance = 0.00M;
+            bool result = vm.FundsSufficient("A1");
+            Assert.IsFalse(result);
+        }
 
-        }//string slot
+        [TestMethod]
+        public void FundsSufficientIsTest()
+        {
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            vm.UserBalance = 5.00M;
+            bool result = vm.FundsSufficient("A1");
+            Assert.IsTrue(result);
+        }
 
         [TestMethod]
         public void InStockTestZero()
@@ -81,9 +98,9 @@ namespace CapstoneTests
             vm.SelectProductForPurchase("A1");
             vm.SelectProductForPurchase("A1");
             vm.SelectProductForPurchase("A1");
-            bool result = vm.IsItemFound("A1");
+            bool result = vm.InStock("A1");
             Assert.IsFalse(result);
-        }//string slot
+        }
 
         [TestMethod]
         public void InStockTestAboveZero()
