@@ -55,7 +55,11 @@ namespace CapstoneTests
         [TestMethod]
         public void ToArrayTest()
         {
-
+            VendingMachine vm = new VendingMachine();
+            vm.ReadFile();
+            List<VendingMachineItem> vendingMachineItems = new List<VendingMachineItem>();
+            VendingMachineItem[] vendingMachines = vendingMachineItems.ToArray();
+            CollectionAssert.AreEqual(vendingMachines, vendingMachineItems.ToArray());
         }
 
         [TestMethod]

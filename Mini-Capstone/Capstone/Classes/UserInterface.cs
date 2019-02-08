@@ -52,7 +52,6 @@ namespace Capstone.Classes
 
         private void DisplayVendingMachineItems()
         {
-            //TODO replace count with soldout if 0 or below
             VendingMachineItem[] result = vendingMachine.ToArray();
             foreach (VendingMachineItem item in result)
             {
